@@ -31,7 +31,7 @@ public class CustomFragment extends Fragment {
 
         if (view != null) {
             txvFrg = (TextView)view.findViewById(R.id.tvText);
-
+            txvFrg.setText(getArguments().getString(KEY_REG_TEXT));
         }
         return view;
     }

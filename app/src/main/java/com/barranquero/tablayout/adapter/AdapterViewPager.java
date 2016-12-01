@@ -1,21 +1,36 @@
 package com.barranquero.tablayout.adapter;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 
 import com.barranquero.tablayout.CustomFragment;
+import com.barranquero.tablayout.R;
 
 /**
  * Adapter
  */
 public class AdapterViewPager extends FragmentStatePagerAdapter {
     private int tabCount;
+    private Context context;
 
-    public AdapterViewPager(FragmentManager fm, int tabCount) {
+    public AdapterViewPager(FragmentManager fm, int tabCount, Context c) {
         super(fm);
         this.tabCount = tabCount;
+        this.context = c;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        String[] titles = context.getResources().getStringArray(R.array.tabs);
+
+        return titles[position];
     }
 
     @Override
